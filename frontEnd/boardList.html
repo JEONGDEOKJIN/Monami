@@ -5,6 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
     <!-- axios 로 form 태그 대신 전송 받아오기 ⭐⭐ -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -538,9 +545,9 @@
     }
 
     /* ⭐ 호버 디자인도 해보고 싶어 ⭐⭐⭐ */
-    .link_container_BTN:hover{
+    /* .link_container_BTN:hover{
         /* background-color: blue; */
-    }
+    /* } */
 
 
 
@@ -633,6 +640,7 @@
 
                 <!-- share drawing! -->
                 <div class="right_wrapper_item shareBtn_wrap">
+                    <!-- 게시글 작성 페이지로 이동 -->
                     <button id="shareWorkBtn" class="shareBtn"> Share Work</button>
                 </div>
     
@@ -1077,10 +1085,13 @@
                     // 1️⃣ post 에 유저가 올린 사진 container | figure 태그 안에 들어가는 것들
 
                         // [시도] figure 태그로 하는 버전
+                            console.log("SD?SD?sssssssssssSD",element.post_img);
+
                             const post_image_container = document.createElement('div');
                             const post_image = document.createElement('figure');
                             post_image.classList.add('post_image');
-                            post_image.style.backgroundImage = `url(http://127.0.0.1:5502/Monami/backEnd/image/${element.post_img})`;    
+                            // post_image.style.backgroundImage = `url(http://127.0.0.1:4000/img/TV.png)`;    
+                            post_image.style.backgroundImage = `url(http://127.0.0.1:4000/img/${element.post_img})`;    
                             post_image_container.appendChild(post_image)
 
                         // post_container 에 합치기

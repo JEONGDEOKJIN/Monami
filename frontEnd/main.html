@@ -67,11 +67,26 @@
   <div>
   </div>
 
-  <h1>게시판 5개</h1>
-  <div>
-    <span> </span>
-    <span id="board_rank"></span>
-  </div>
+              <div class="boardDiv">
+                <div class="boardTitle">
+                  <h1>게시판</h1>
+                </div>
+                <div class="boardContent">
+                  <span id="board_rank"></span>
+                  <div>
+                    <a href="http://127.0.0.1:5500/Monami/frontEnd/boardCreate.html">게시판 글쓰기</a>
+                  </div>
+                  
+                  <div>
+                    <a href="http://127.0.0.1:5500/Monami/frontEnd/boardItem.html">게시판 상세 페이지</a>
+                  </div>
+                
+                  
+                  <div>
+                    <a href="http://127.0.0.1:4000/board/list/view">게시판 목록</a>
+                  </div>
+                </div>
+              </div>
 
   <div>
     <a href="http://127.0.0.1:5502/Monami/frontEnd/boardCreate.html">게시판 글쓰기</a>
@@ -142,6 +157,7 @@
 
 
   loginBtn.onclick = () => {
+    //%%%%%%%%%%바꿔주세요%%%%%%%%%%%%%%%%(원본: /login)
     axios.post('http://127.0.0.1:4000/login', {
       data:
       {
@@ -166,7 +182,9 @@
 
   }
   async function loginDraw(e) {
-        document.cookie =`token=${e.data.token}; path=/`
+    console.log("Received token:", e.data.token);
+    // 안써도 됨... login 할때 req.session == cookie 에 넣어주는 작업 이였음
+    document.cookie = `token2=${e.data.token}; path=/`
 
         loginSuccess.style.display = "block"
         beforeLogin.style.display = "none"

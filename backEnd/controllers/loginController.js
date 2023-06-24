@@ -3,6 +3,8 @@ const { User } = require("../models");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
+
+
 exports.loginUser = async(req,res)=>{
   try {
     const { user_id, user_pw } = req.body.data;
@@ -39,3 +41,22 @@ exports.loginUser = async(req,res)=>{
     console.log(error);
   }
 }
+
+
+exports.logoutUser = async(req, res) => {
+  try {
+      req.session.destroy((err) => {
+          if(err) {
+              console.log(err);
+              return res.json({message:"로그아웃 실패"});
+          }
+          
+          res.clearCookie('token');  
+          // connect.sid는 express-session에서 기본으로 사용하는 세션 쿠키 이름입니다.
+          res.send({message : "로그아웃 완료"});
+      });
+  } catch (error) {
+      console.log(error);
+      return res.json({message:"서버 오류"});
+  }
+};
